@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>medthod</title>
+  </head>
+  <body>
+    <!-- เรียกใช้ method แบบ นอก class -->
+    <!-- <script>
+      class User {
+        name = "Aavatar";
+        pass = 1234;
+        constructor(n, p) {
+          this.name = n;
+          this.pass = p;
+        }
+        //method
+        showDetail() {
+          console.log(`ชื่อ ${this.name}`);
+        }
+      }
+      const user1 = new User("ken", 9999);
+      user1.showDetail();
+      const user2 = new User("anomk", 222);
+      user2.showDetail();
+    </script> -->
+
+    <script>
+      //เรียกใช้ method แบบ ใน class
+      class User {
+        name = "Aavatar";
+        pass = 1234;
+        constructor(n, p) {
+          this.name = n;
+          this.pass = p;
+          this.showDetail();
+        }
+        //method
+        showDetail() {
+          console.log(`ชื่อ ${this.name}`);
+        }
+      }
+      const user1 = new User("ken", 9999);
+      const user2 = new User("anomk", 222);
+    </script>
+  </body>
+</html>

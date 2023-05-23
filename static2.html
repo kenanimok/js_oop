@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>static2</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        #name;
+        #password;
+        static database = [];
+        static type = "xxx";
+        constructor(name, password) {
+          this.#name = name;
+          this.#password = password;
+        }
+
+        showDetail() {
+          console.log(`ชื่อ ${this.#name}==>รหัส${this.#password}`);
+        }
+
+        set Name(newName) {
+          this.#name = newName;
+        }
+
+        get Name() {
+          return this.#name;
+        }
+
+        static addData(item) {
+          this.database.push(item);
+        }
+      }
+      const user1 = new User("ken11", 9999);
+      //   const user2 = new User("ken222", 9999);
+      const user3 = new User("tototot", 9999);
+
+      User.addData(user1);
+      User.addData(new User("jojo", 55555));
+      User.addData(user3);
+
+      console.log("database==>", User.database);
+
+      //
+      User.database.forEach((item) => {
+        item.showDetail();
+      });
+    </script>
+  </body>
+</html>

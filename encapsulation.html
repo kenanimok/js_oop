@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- public
+    <script>
+      class User {
+        name;
+        password;
+        constructor(name, password) {
+          this.name = name;
+          this.password = password;
+        }
+        showDetail() {
+          console.log(`ชื่อ ${this.name}::::::::รหัส  ${this.password}`);
+        }
+      }
+      const user1 = new User("ken", 9999);
+      user1.name = "hacker";
+      user1.password = "hacher pass";
+      user1.showDetail();
+    </script> -->
+
+    <script>
+      class User {
+        //private
+        #name;
+        #password;
+        constructor(name, password) {
+          this.name = name;
+        }
+
+        showDetail() {
+          //ใช้ได้
+          //   this.name = "avatar";
+          console.log(`ชื่อ ${this.name}==>รหัส${this.#password}`);
+        }
+      }
+      const user1 = new User("ken", 9999);
+      user1.name = "hacker";
+      user1.password = "not use new pass";
+      user1.showDetail();
+      //   console.log("user1", user1);
+    </script>
+  </body>
+</html>

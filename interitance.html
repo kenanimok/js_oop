@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inheritance</title>
+
+    <script>
+      class User {
+        #name;
+        #password;
+        constructor(name, password) {
+          this.#name = name;
+          this.#password = password;
+        }
+
+        showDetail() {
+          console.log(`ชื่อ ${this.#name}==>รหัส${this.#password}`);
+        }
+
+        set Name(newName) {
+          this.#name = newName;
+        }
+
+        get Name() {
+          return this.#name;
+        }
+      }
+      //   const user1 = new User("ken11", 9999);
+
+      class Teacher extends User {}
+
+      class Student extends User {}
+
+      const user1 = new Teacher("tehcher1", 1111);
+      const user2 = new Student("studten1", 22222);
+
+      user2.showDetail();
+    </script>
+  </head>
+  <body></body>
+</html>

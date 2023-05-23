@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>use super</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        #name;
+        #password;
+        constructor(name, password) {
+          this.#name = name;
+          this.#password = password;
+        }
+
+        showDetail() {
+          console.log(`ชื่อ ${this.#name}==>รหัส${this.#password}`);
+        }
+
+        set Name(newName) {
+          this.#name = newName;
+        }
+
+        get Name() {
+          return this.#name;
+        }
+      }
+
+      class Teacher extends User {
+        #couse;
+        constructor(name, password, couse) {
+          super(name, password); // contructor class แม่
+          console.log("ฉันเป็นครู");
+          this.#couse = couse;
+        }
+
+        get Couse() {
+          return this.#couse;
+        }
+      }
+
+      class Student extends User {
+        constructor(name, password) {
+          super(name, password); // contructor class แม่
+          console.log("ฉันเป็น นรนรนรรนรนร");
+        }
+      }
+
+      const user1 = new Teacher("techer1", 999, "coding");
+      console.log("getter name คลาสแม่", user1.Name);
+      user1.showDetail();
+      const user2 = new Student("studdnet", 5555);
+
+      console.log("get", user1.Couse);
+    </script>
+  </body>
+</html>

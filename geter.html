@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      class User {
+        #name;
+        #password;
+        constructor(name, password) {
+          this.name = name;
+        }
+
+        showDetail() {
+          console.log(`ชื่อ ${this.#name}==>รหัส${this.#password}`);
+        }
+
+        setName(newName) {
+          this.#name = newName;
+        }
+
+        getName() {
+          return this.#name;
+        }
+      }
+      const user1 = new User("ken", 9999);
+      user1.setName("animok");
+      console.log("usege", user1.getName());
+    </script> -->
+
+    <script>
+      class User {
+        #name;
+        #password;
+        constructor(name, password) {
+          this.name = name;
+        }
+
+        showDetail() {
+          console.log(`ชื่อ ${this.#name}==>รหัส${this.#password}`);
+        }
+
+        set Name(newName) {
+          this.#name = newName;
+        }
+
+        get Name() {
+          return this.#name;
+        }
+      }
+      const user1 = new User("ken", 9999);
+      user1.Name = "xxxxx";
+      console.log("usegeter ", user1.Name);
+      console.log("ธรรดา ", user1.name);
+    </script>
+  </body>
+</html>
