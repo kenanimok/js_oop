@@ -4,9 +4,57 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>override method</title>
+    <title>override</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      class User {
+        #name;
+        #password;
+        constructor(name, password) {
+          this.#name = name;
+          this.#password = password;
+        }
+
+        showDetail() {
+          console.log(`ชื่อ ${this.#name}==>รหัส${this.#password}`);
+        }
+
+        set Name(newName) {
+          this.#name = newName;
+        }
+
+        get Name() {
+          return this.#name;
+        }
+      }
+
+      class Teacher extends User {
+        #couse;
+        constructor(name, password, couse) {
+          super(name, password);
+          this.#couse = couse;
+        }
+
+        showDetail() {
+          console.log(`i am teacher`);
+        }
+      }
+
+      class Student extends User {
+        constructor(name, password) {
+          super(name, password);
+        }
+        // showDetail() {
+        //   console.log(`i am Std std std`);
+        // }
+        // ถ้าไม่เรียกใช้ มันก้จะไป เรียกใช้  medthod แม่
+      }
+
+      const user1 = new Teacher("techer1", 999, "coding");
+      user1.showDetail();
+      const user2 = new Student("studdnet", 5555);
+      user2.showDetail();
+    </script>
   </body>
 </html>

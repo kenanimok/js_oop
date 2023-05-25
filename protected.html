@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>protected</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        _name; // protected
+        #password; //private
+        school; //  public
+        constructor(name, password, school) {
+          this._name = name;
+          this.#password = password;
+          this.school = school;
+        }
+
+        showDetail() {
+          console.log(
+            `ชื่อ ${this._name}==>รหัส${this.#password} ==> รร ${this.school}`
+          );
+        }
+
+        set Name(newName) {
+          this._name = newName;
+        }
+
+        get Name() {
+          return this._name;
+        }
+      }
+
+      class Teacher extends User {
+        #couse;
+        constructor(name, password, couse, school) {
+          super(name, password, school);
+          this.#couse = couse;
+        }
+
+        showDetail() {
+          console.log(
+            `i am ${this._name} couse : ${this.#couse} sc==> ${this.school}  `
+          );
+        }
+      }
+
+      class Student extends User {
+        #score;
+        constructor(name, password, score) {
+          super(name, password);
+          this.#score = score;
+        }
+        showDetail() {
+          console.log(
+            `Student ${this._name} pass ใช้ไม่ได้เพราะเป็น private : ${
+              this.password
+            }  score : ${this.#score} `
+          );
+        }
+      }
+
+      // const userAdmin = new User("ken", 1234, "xxx");
+      // userAdmin.school = "ooo";
+      // userAdmin.showDetail();
+
+      const user1 = new Teacher("techer1", 999, "coding", "nrru");
+      user1._name = "yyy";
+      console.log("user1", user1._name);
+
+      // user1.showDetail();
+      const user2 = new Student("studdnet", 111, 999);
+      user2.showDetail();
+    </script>
+  </body>
+</html>
